@@ -1,0 +1,59 @@
+<!-- <!doctype html>
+<title>Cat and Dog Predictor</title>
+<h2>Cat and Dog Predictor</h2>
+{% if filename %}
+  <div>
+    <img src="{{ url_for('display_image', filename=filename) }}" width="300" height="300">
+  </div>
+{% endif %}
+<form method="post" action="/predict" enctype="multipart/form-data">
+    <dl>
+    <p>
+      <input type="file" name="file" autocomplete="off" required>
+    </p>
+    </dl>
+    <p>
+    <input type="submit" value="Submit">
+  </p>
+</form>
+{% if prediction %}
+<p>Prediction: {{ prediction }}</p>
+{% endif %} -->
+
+
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Cat and Dog Predictor</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+ <div class="login">
+  <h1>Cat and Dog Predictor</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+     <form method="post" action="/predict" enctype="multipart/form-data">
+      <dl>
+      <p>
+        <input type="file" name="file" autocomplete="off" required>
+      </p>
+      </dl>
+      <p>
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </p>
+  </form>
+  {% if filename %}
+  <div>
+    <img src="{{ url_for('display_image', filename=filename) }}" width="200" height="200">
+  </div>
+  {% endif %}
+   <br>
+   Prediction: {{ prediction }}
+ </div>
+</body>
+</html>
