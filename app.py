@@ -48,3 +48,6 @@ def predict():
 		    prediction = 'cat'
 
 		return render_template('index.html', filename=filename, prediction=prediction)
+
+if __name__ == "__main__":
+	app.run()
